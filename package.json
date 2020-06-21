@@ -1,0 +1,29 @@
+{
+  "name": "chatroom",
+  "version": "1.0.0",
+  "description": "Realtime chat with rooms",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server",
+    "dev": "nodemon backend/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlanGaia/Realtime-Chat-Socket.git"
+  },
+  "keywords": [],
+  "author": "Alan Gaia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AlanGaia/Realtime-Chat-Socket/issues"
+  },
+  "homepage": "https://github.com/AlanGaia/Realtime-Chat-Socket#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "moment": "^2.27.0",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}

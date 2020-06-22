@@ -6,6 +6,8 @@ Author: Alan Gaia
 - NPM i
 - NPM Start
 
+LIVE DEMO : https://chateamos.herokuapp.com/
+
 ### Features
 
 - Nicknames

@@ -19,19 +19,23 @@ const serverBot = 'Dev BOT'
 //Run when Client Connects
 io.on('connection', socket => {
     socket.on('joinRoom', ({username,room}) => {
-    const user = userJoin(socket.id, username, room);
+      const user = userJoin(socket.id, username, room);
 
-    socket.join(user.room);
+      socket.join(user.room);
 
+      //Welcome to current User connected
+      socket.emit('message', formatMessage(serverBot,'Welcome to CheatMe Chat!'));
 
-    //Welcome to current User connected
-    socket.emit('message', formatMessage(serverBot,'Welcome to CheatMe Chat!'));
+      // Broadcast when a User connects 
+      socket.broadcast.to(user.room).emit('message',formatMessage(serverBot,`${user.username} has joined the Chat`));
 
-    // Broadcast when a User connects 
-    socket.broadcast.to(user.room).emit('message',formatMessage(serverBot,`${user.username} has joined the Chat`));
+      // Send users and room info
+      io.to(user.room).emit('roomUsers', {
+        room: user.room,
+        users: getRoomUsers(user.room)
+      });
     })
-
-
+    
 
     // listen for chat message
     socket.on('chatMessage', (msg) => {
@@ -47,6 +51,11 @@ io.on('connection', socket => {
         if (user){
           io.to(user.room).emit('message', formatMessage(serverBot,`${user.username} has left the chat`));
         }
+        // Send users and room info
+        io.to(user.room).emit('roomUsers', {
+        room: user.room,
+        users: getRoomUsers(user.room)
+    });
     });
 });
 

@@ -14,6 +14,10 @@ const io = socketio(server);
 //set Static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Route /
+app.get('/', (req, res) => {
+  res.sendFile('index.html');
+})
 const serverBot = 'Dev BOT'
 
 //Run when Client Connects

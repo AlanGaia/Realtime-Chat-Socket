@@ -3,7 +3,7 @@
 Author: Alan Gaia
 
 ## How to install?
-- NPM i
+- NPM install
 - NPM Start
 
 LIVE DEMO : https://chateamos.herokuapp.com/

@@ -1,4 +1,4 @@
-# Chat Real Time with Socket.io
+# Chat Real Time with Socket.io 💬
 ![overview chat view](/public/images/chat-socket-io.png)
 
 Author: Alan Gaia
